@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reading Tracker Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>📚 Reading Tracker</h1>
+    <button onclick="logout()">Logout</button>
+  </header>
+
+  <section id="add-book">
+    <h2>Add a Book</h2>
+    <input type="text" id="bookSearch" placeholder="Search for books..." />
+    <button onclick="searchBooks()">Search</button>
+    <div id="searchResults"></div>
+  </section>
+
+  <section id="book-list">
+    <h2>My Library</h2>
+    <select onchange="filterBooks(this.value)">
+      <option value="">All</option>
+      <option value="Want to Read">Want to Read</option>
+      <option value="Currently Reading">Currently Reading</option>
+      <option value="Read">Read</option>
+    </select>
+    <div id="booksContainer"></div>
+  </section>
+
+  <section id="export-import">
+    <button onclick="exportBooks()">Export to CSV</button>
+    <input type="file" id="importFile" onchange="importBooks()" />
+  </section>
+
+  <script src="auth.js"></script>
+  <script src="api.js"></script>
+  <script src="data.js"></script>
+  <script src="utils.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
